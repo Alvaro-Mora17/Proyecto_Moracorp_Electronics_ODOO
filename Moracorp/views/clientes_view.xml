@@ -1,0 +1,85 @@
+<odoo>
+  <data>
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="clientes_action_window">
+      <field name="name">Clientes de Moracorp Electrics</field>
+      <!-- Nombre del modelo que mostraremos en la vista-->
+      <field name="res_model">moracorp.clientes</field>
+      <!-- Indicamos que nuestro formulario tendrá vista tree (para mostrar todos los datos
+      y vista form (para crear o editar datos)
+      La vista Form no la definimos, por lo cual tendremos la version automatica.
+      La vista tree la definiremos mas abajo.
+      -->
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item 
+    En este ejemplo, todo el menu de "menuitem" esta puesto como ejemplo, no hace una función concreta
+    -->
+    <!-- actions -->
+    <menuitem name="Clientes" id="clientes_menu" parent="moracorp_menu_root" action="clientes_action_window" />
+
+
+    <!-- Odoo puede colocar vistas automaticas, aunque con un aspecto y funcionalidad mejorable
+    Nosotros, para afinarlo, explicaremos de manera explicita como es cada vista -->
+
+    <!-- Definimos como es la vista explicita de la lista-->
+
+    <!-- Vista Tree -->
+    <record model="ir.ui.view" id="clientes_tree_view">
+      <field name="name">Lista de Clientes</field>
+      <field name="model">moracorp.clientes</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="nif"/>
+          <field name="nombre"/>
+          <field name="foto" widget="image" class="oe_avatar" />
+          <field name="fecha_registro"/>
+          <field name="direccion"/>
+          <field name="telefono"/>
+          <field name="codigo_postal"/>
+          <field name="localizacion"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record model="ir.ui.view" id="clientes_form_view">
+        <field name="name">Formulario de Clientes</field>
+        <field name="model">moracorp.clientes</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nif"/>
+                    </group>
+                    <group>
+                        <field name="nombre"/>
+                    </group>
+                    <group>
+                        <field name="foto" widget="image" class="oe_avatar" />
+                    </group>
+                    <group>
+                        <field name="fecha_registro"/>
+                    </group>
+                    <group>
+                        <field name="direccion"/>
+                    </group>
+                    <group>
+                        <field name="telefono"/>
+                    </group>
+                    <group>
+                        <field name="codigo_postal"/>
+                    </group>
+                    <group>
+                        <field name="localizacion"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>
