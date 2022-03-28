@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acl_moracorp_productos,moracorp.productos_default,model_moracorp_productos,base.group_user,1,1,1,
-acl_moracorp_ventas,moracorp.ventas_default,model_moracorp_ventas,base.group_user,1,1,1,1
-acl_moracorp_compras,moracorp.compras_default,model_moracorp_compras,base.group_user,1,1,1,1
-acl_moracorp_proveedores,moracorp.proveedores_default,model_moracorp_proveedores,base.group_user,1,1,1,1
-acl_moracorp_clientes,moracorp.clientes_default,model_moracorp_clientes,base.group_user,1,1,1,1
-acl_moracorp_pedidos,moracorp.pedidos_default,model_moracorp_pedidos,base.group_user,1,1,1,1
