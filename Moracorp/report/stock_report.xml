@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ejemplo de informe asociado al stock (se genera al darle a imprimir 
+        desde la vista Form de Stock) -->
+    <template id="report_stock_view">
+        <!-- Aqui la estructura a seguir -->
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Cabecera -->
+                        <h1 class = "text-center"> Stock del Producto</h1>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <table class = "table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class = "text-center" style="font-size:15px">Identificador</th>
+                                    <th class = "text-center" style="font-size:15px">Numero de Serie</th>
+                                    <th class = "text-center" style="font-size:15px">Marca</th>
+                                    <th class = "text-center" style="font-size:15px">Nombre del Producto</th>
+                                    <th class = "text-center" style="font-size:15px">Precio sin IVA</th>
+                                    <th class = "text-center" style="font-size:15px">Porcentaje de IVA</th>
+                                    <th class = "text-center" style="font-size:15px">Precio de Venta al Publico(PVP)</th>
+                                    <th class = "text-center" style="font-size:15px">Cantidad</th>
+                                    <th class = "text-center" style="font-size:15px">Compra</th>
+                                    <th class = "text-center" style="font-size:15px">Venta</th>
+                                    <th class = "text-center" style="font-size:15px">Ingresos</th>
+                                    <th class = "text-center" style="font-size:15px">Costes</th>
+                                    <th class = "text-center" style="font-size:15px">Beneficios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.id" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.n_serie" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.marca" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.nombre" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.precio" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.porcentaje_iva" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.precio_iva" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.cantidad" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.compra" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.venta" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.ingresos" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.costes" />
+                                    </td>
+                                    <td class = "text-center" style="font-size:15px">
+                                        <span t-field="doc.beneficios" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report id="report_stock" model="moracorp.productos" string="Stock de Productos" name="Moracorp.report_stock_view" file="Moracorp.report_stock_view" report_type="qweb-pdf" />
+</odoo>
